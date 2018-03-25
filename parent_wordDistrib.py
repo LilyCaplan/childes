@@ -40,7 +40,6 @@ def main():
 	d = defaultdict(list)
 	CORPUS_PATH = "/Users/lilycaplan/school/spring2018/colag/childes/Manchester"
 	scandirs(CORPUS_PATH, d )
-	#print d[40]
 	for i in d:
 		print i,
 		print ': ',
