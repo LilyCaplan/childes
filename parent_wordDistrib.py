@@ -19,7 +19,8 @@ def scandirs(path, d):
 			manchester = CHILDESCorpusReader(corpus_root, s)
 			li = manchester.words(speaker='MOT') #only the parents words
 			for i in li:
-				d[len(i)].append(i)
+				if(i != 'xxx'):
+					d[len(i)].append(i)
 			
 
 
@@ -44,6 +45,7 @@ def main():
 		print i,
 		print ': ',
 		print len(d[i])
+	
 
 if __name__ == "__main__":
     main()
