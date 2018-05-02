@@ -3,7 +3,6 @@ import glob
 from collections import defaultdict
 import nltk
 from nltk.corpus.reader import CHILDESCorpusReader
-import csv
 import pandas as pd
 
 
@@ -15,12 +14,12 @@ def scandirs(path, part_ofspeech, dependencies):
     		print(currentFile)
     		s = sentence_cut(currentFile) # returns name of kid (directory)
     		s += '/.*.xml'
+    		print(s)
     		manchester = CHILDESCorpusReader(corpus_root, s)
-    		li = manchester.words(relation=True) #only the parents words
+    		li = manchester.words(relation=True, speaker='MOT') #only the parents words
     		for i in li:
     			for k in i:
     				if(len(k) >= 3):
-    					print(k[2])
     					depen(k, dependencies)
     				partOfSpeech(k, part_ofspeech)
 					
